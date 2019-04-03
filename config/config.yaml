@@ -1,0 +1,16 @@
+%YAML:1.0
+
+# param calibrate
+depth_image_file: "../image/chessBoard/depth/depthImageName.txt"
+color_image_file: "../image/chessBoard/color/colorImageName.txt"
+
+correcting_color_image: "../image/chessBoard/capture/color.bmp"
+correcting_depth_image: "../image/chessBoard/capture/depth.bmp"
+
+corrected_result_path: "../image/chessBoard/capture/"
+
+# chessBoard
+boardW: 6
+boardH: 4 
+squareW: 5
+squareH: 5

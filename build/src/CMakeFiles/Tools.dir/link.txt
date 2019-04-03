@@ -1,0 +1,2 @@
+/usr/bin/ar qc ../../lib/libTools.a  CMakeFiles/Tools.dir/Tools/AK_cameraParam.cpp.o CMakeFiles/Tools.dir/Tools/AK_paramLoader.cpp.o
+/usr/bin/ranlib ../../lib/libTools.a
