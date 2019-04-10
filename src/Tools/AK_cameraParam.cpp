@@ -143,11 +143,12 @@ cv::Mat AK_CameraParam::correctImage(cv::Mat colorMat, cv::Mat depthMat, AK_CAME
     
     for (size_t y=0; y < depthMat.rows; y++) {
 	
-	unsigned short* row_ptr = depthMat.ptr<unsigned short> ( y );  // row_ptr
+	unsigned char* row_ptr = depthMat.ptr<unsigned char> ( y );  // row_ptr
 	for (size_t x=0; x < depthMat.cols; x++) {
-	    unsigned short* data_ptr = &row_ptr[ x / 2 ]; // data_ptr 
-	    unsigned short data = data_ptr[0]; 
-	    unsigned short realDepth = (data & 0xfff8) >> 3;
+	    unsigned char* data_ptr = &row_ptr[ x * 3 ]; // data_ptr 
+	    unsigned char data = data_ptr[0]; 
+	    // unsigned short realDepth = (data & 0xfff8) >> 3;
+	    unsigned int realDepth = data_ptr[0] * 0xffff + data_ptr[1] * 0xff + data_ptr[2];
 	    
 	    unsigned char* d_row_ptr = correctMat.ptr<unsigned char> ( y );  // row_ptr
 	    unsigned char* d_data_ptr = &d_row_ptr[ x*correctMat.channels() ]; // data_ptr
